@@ -1,5 +1,5 @@
 // components/FloatingAdBanner.tsx
-// 'use client'
+'use client'
 
 import { ExternalLink, Sparkle, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
@@ -42,52 +42,68 @@ export function FloatingAdBanner() {
 
   return (
     <div
-      className={`absolute top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isClosing ? 'translate-y-[-100%] opacity-0' : 'translate-y-0 opacity-100'
       }`}
     >
       <div dir="rtl" className="relative mx-auto max-w-4xl px-4 py-3">
-        <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl shadow-2xl border border-white/20 backdrop-blur-sm">
-          <div className="flex items-center justify-between px-4 py-3">
-            {/* Left side - Icon & Message */}
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-white/20 rounded-lg">
-                <Sparkle className="h-5 w-5" />
-              </div>
-              <div>
-                <p className="font-semibold text-sm md:text-base">
-                  اهلا بيك <span className="font-bold text-yellow-300">انا زياد هشام</span>
-                </p>
-                <p className="text-xs md:text-sm text-white/80">
-                  لو في حاجة واحدة بعرف اعملها, هتكون الwebsite بتاعك
-                </p>
-              </div>
-            </div>
-
-            {/* Right side - CTA & Close */}
-            <div className="flex items-center gap-4">
-              <a
-                href="https://your-portfolio-site.com" // Replace with your actual site
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 bg-white text-blue-600 rounded-lg font-semibold text-sm hover:bg-gray-100 transition-colors flex items-center gap-2 shadow-lg hover:shadow-xl"
-              >
-                Visit My Site
-                <ExternalLink className="h-3 w-3" />
-              </a>
-
-              <button
-                onClick={handleClose}
-                className="p-1.5 hover:bg-white/20 rounded-lg transition-colors"
-                aria-label="Close banner"
-              >
-                <X className="h-4 w-4" />
-              </button>
-            </div>
+        {/* Glassy/Blurred Background Container */}
+        <div className="relative">
+          {/* Backdrop Blur Layer */}
+          <div className="absolute inset-0 bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 shadow-2xl" />
+          
+          {/* Gradient Border Effect */}
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 p-[1px]">
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/30 to-purple-600/30 blur-md" />
           </div>
 
-          {/* Progress bar (optional - shows time until auto-close) */}
-          <div className="h-1 bg-gradient-to-r from-yellow-400 to-pink-500 rounded-b-xl animate-pulse"></div>
+          {/* Main Content */}
+          <div className="relative bg-gradient-to-r from-blue-500/10 to-purple-600/10 rounded-2xl border border-white/30 backdrop-blur-sm">
+            <div className="flex items-center justify-between px-6 py-4">
+              {/* Left side - Icon & Message */}
+              <div className="flex items-center gap-4">
+                <div className="p-2.5 bg-gradient-to-br from-white/30 to-white/10 rounded-xl backdrop-blur-sm border border-white/30 shadow-lg">
+                  <Sparkle className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <p className="font-bold text-base md:text-lg text-white drop-shadow-md">
+                    اهلا بيك <span className="font-extrabold text-yellow-300/90">انا زياد هشام</span>
+                  </p>
+                  <p className="text-sm md:text-base text-white/90 mt-1 font-medium">
+                    لو في حاجة واحدة بعرف اعملها, هتكون الwebsite بتاعك
+                  </p>
+                </div>
+              </div>
+
+              {/* Right side - CTA & Close */}
+              <div className="flex items-center gap-4">
+                <a
+                  href="https://your-portfolio-site.com" // Replace with your actual site
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative px-5 py-2.5 bg-gradient-to-r from-white to-white/90 text-blue-600 rounded-xl font-bold text-sm hover:from-white hover:to-white transition-all duration-300 flex items-center gap-2 shadow-2xl hover:shadow-3xl group overflow-hidden"
+                >
+                  {/* Shine effect on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                  <span className="relative">Visit My Site</span>
+                  <ExternalLink className="h-4 w-4 relative" />
+                </a>
+
+                <button
+                  onClick={handleClose}
+                  className="p-2 hover:bg-white/20 rounded-xl transition-all duration-300 backdrop-blur-sm border border-transparent hover:border-white/30"
+                  aria-label="Close banner"
+                >
+                  <X className="h-5 w-5 text-white" />
+                </button>
+              </div>
+            </div>
+
+            {/* Animated Gradient Progress Bar */}
+            <div className="h-1.5 w-full overflow-hidden rounded-b-2xl">
+              <div className="h-full bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 animate-[shimmer_2s_infinite_linear] bg-[length:200%_100%]" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
