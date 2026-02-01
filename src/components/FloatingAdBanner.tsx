@@ -59,7 +59,7 @@ export function FloatingAdBanner() {
 
           {/* Main Content */}
           <div className="relative bg-gradient-to-r from-blue-500/10 to-purple-600/10 rounded-2xl border border-white/30 backdrop-blur-sm">
-            <div className="flex items-center justify-between px-6 py-4">
+            <div className="md:flex items-center justify-between px-6 py-4">
               {/* Left side - Icon & Message */}
               <div className="flex items-center gap-4">
                 <div className="p-2.5 bg-gradient-to-br from-white/30 to-white/10 rounded-xl backdrop-blur-sm border border-white/30 shadow-lg">
@@ -76,7 +76,7 @@ export function FloatingAdBanner() {
               </div>
 
               {/* Right side - CTA & Close */}
-              <div className="flex items-center gap-4">
+              <div className="mt-3 flex items-center gap-4">
                 <a
                   href="https://your-portfolio-site.com" // Replace with your actual site
                   target="_blank"
@@ -89,13 +89,13 @@ export function FloatingAdBanner() {
                   <ExternalLink className="h-4 w-4 relative" />
                 </a>
 
-                <button
+                {/* <button
                   onClick={handleClose}
                   className="p-2 hover:bg-white/20 rounded-xl transition-all duration-300 backdrop-blur-sm border border-transparent hover:border-white/30"
                   aria-label="Close banner"
                 >
                   <X className="h-5 w-5 text-white" />
-                </button>
+                </button> */}
               </div>
             </div>
 
