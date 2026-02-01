@@ -73,6 +73,13 @@ export function FloatingAdBanner() {
                     لو في حاجة واحدة بعرف اعملها, هتكون الwebsite بتاعك
                   </p>
                 </div>
+                 <button
+                  onClick={handleClose}
+                  className="md:hidden p-2 hover:bg-white/20 rounded-xl transition-all duration-300 backdrop-blur-sm border border-transparent hover:border-white/30"
+                  aria-label="Close banner"
+                >
+                  <X className="h-5 w-5 text-white" />
+                </button>
               </div>
 
               {/* Right side - CTA & Close */}
@@ -89,13 +96,13 @@ export function FloatingAdBanner() {
                   <ExternalLink className="h-4 w-4 relative" />
                 </a>
 
-                {/* <button
+                <button
                   onClick={handleClose}
-                  className="p-2 hover:bg-white/20 rounded-xl transition-all duration-300 backdrop-blur-sm border border-transparent hover:border-white/30"
+                  className="hidden sm:block p-2 hover:bg-white/20 rounded-xl transition-all duration-300 backdrop-blur-sm border border-transparent hover:border-white/30"
                   aria-label="Close banner"
                 >
                   <X className="h-5 w-5 text-white" />
-                </button> */}
+                </button>
               </div>
             </div>
 
